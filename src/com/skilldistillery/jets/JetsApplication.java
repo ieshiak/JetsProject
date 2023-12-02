@@ -9,6 +9,7 @@ import com.skilldistillery.jets.AirField;
 
 public class JetsApplication {
 	private AirField airField;
+	private Scanner scanner;
 	
 	public static void main(String[] args) {
 		JetsApplication app = new JetsApplication();
@@ -39,6 +40,12 @@ public class JetsApplication {
 	        airField.assembleFleet();
 	        //fly all jets
 	        airField.soarTheSkies();
+	        //fastest Jet
+	        airField.speedster();
+	        //longest Range Jet
+	        airField.supremeRange();
+	        //load Cargo Jets
+	        airField.loadCargoCarriers();
 
 	        // Display jet details
 	        for (Jet jet : airField.getJets()) {
@@ -69,8 +76,8 @@ public class JetsApplication {
 
 	            System.out.println(); // Add a newline for better readability
 	        }
-	    
-	
+	}
+	    public void run() {
 		while (true) {
 
 			System.out.println("                                                                        88        "); 
@@ -107,22 +114,22 @@ public class JetsApplication {
             	airField.soarTheSkies();
                 break;
             case 3:
-                speedster();
+            	airField.speedster();
                 break;
             case 4:
-                supremeRange();
+            	airField.supremeRange();
                 break;
             case 5:
-                loadCargoCarriers();
+            	airField.loadCargoCarriers();
                 break;
             case 6:
-                showdown();
+            	fight();
                 break;
             case 7:
-                recruitMarvelousJet(scanner);
+            	addJetSubMenu();
                 break;
             case 8:
-                exileJetFromRanks(scanner);
+            	removeJetSubMenu();
                 break;
             case 9:
                 System.out.println("Until the next riveting chapter, Farewell!");
@@ -131,9 +138,78 @@ public class JetsApplication {
             default:
                 System.out.println("Your selection doesn't align with the cosmic forces at play. Opt for a valid option, true believer!");
     		}
+		}
 		}	
+		private void fight() {
+			// TODO Auto-generated method stub
+			System.out.println("Engaging in a showdown with " + getModel()); 
+		}
+		private void addJetSubMenu(AirField airField, Scanner scanner) {
+	        System.out.println("Select the type of Jet:");
+	        System.out.println("1. Superhero Transport");
+	        System.out.println("2. Cargo Carrier");
+	        System.out.println("3. Heroic Striker");
+	        System.out.println("4. Multiverse Traveler");
 
+	        int jetTypeChoice = scanner.nextInt();
+	        scanner.nextLine(); // Consume the newline character
+
+	        System.out.print("Enter the model: ");
+	        String model = scanner.nextLine();
+
+	        System.out.print("Enter the speed (in MPH): ");
+	        int speed = scanner.nextInt();
+
+	        System.out.print("Enter the range: ");
+	        int range = scanner.nextInt();
+
+	        System.out.print("Enter the price: ");
+	        double price = scanner.nextDouble();
+
+	        switch (jetTypeChoice) {
+	            case 1:
+	                Jet superheroTrans = new SuperheroTransport(model, speed, range, price);
+	                airField.addJet(superheroTrans);
+	                System.out.println("Superhero Transport added to the fleet.");
+	                break;
+	            case 2:
+	                Jet cargoCarrier = new CargoCarrier(model, speed, range, price);
+	                airField.addJet(cargoCarrier);
+	                System.out.println("Cargo Carrier added to the fleet.");
+	                break;
+	            case 3:
+	                Jet heroStrike = new HeroicStriker(model, speed, range, price);
+	                airField.addJet(heroStrike);
+	                System.out.println("Heroic Striker added to the fleet.");
+	                break;
+	            case 4:
+	                Jet multiTraveler = new MultiverseTraveler(model, speed, range, price);
+	                airField.addJet(multiTraveler);
+	                System.out.println("Multiverse Traveler added to the fleet.");
+	                break;   
+	                
+	            default:
+	                System.out.println("Your selection doesn't align with the cosmic forces at play.");
+	        }
 	}
-              
+		 private void removeJetSubMenu() {
+		        System.out.println("Select the Jet to remove by its number:");
+
+		        ArrayList<Jet> jets = airField.getJets();
+		        for (int i = 0; i < jets.size(); i++) {
+		            Jet jet = jets.get(i);
+		            System.out.println((i + 1) + ". " + jet.getModel());
+		        }
+
+		        int jetNumber = scanner.nextInt();
+		        scanner.nextLine(); // Consume the newline character
+
+		        if (jetNumber >= 1 && jetNumber <= jets.size()) {
+		            Jet removedJet = jets.remove(jetNumber - 1);
+		            System.out.println("Removed Jet: " + removedJet.getModel());
+		        } else {
+		            System.out.println("Invalid Jet number. No Jet removed.");
+		        }
+		    }          
                 
 }

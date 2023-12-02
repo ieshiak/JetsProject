@@ -1,7 +1,7 @@
 package com.skilldistillery.jets;
 
 interface Quinjet {
-	public void steath();
+	public void stealth();
 	public void rescue();
 	
 public class SuperheroTransport extends Jet implements Quinjet {
@@ -10,12 +10,12 @@ public class SuperheroTransport extends Jet implements Quinjet {
 		super(model, speed, range, price);
 		// TODO Auto-generated constructor stub
 	}
-
-	public void steath() {
+	@Override
+	public void stealth() {
 		// TODO Auto-generated method stub
 		System.out.println("going invisible "+ getModel());;
 	}
-
+	@Override
 	public void rescue() {
 		// TODO Auto-generated method stub
 		System.out.println("resucing... "+ getModel());
@@ -26,6 +26,7 @@ public class SuperheroTransport extends Jet implements Quinjet {
                 " MPH, Range: " + getRange() + " miles, Price: $" + getPrice());
     }
 }
+		
 
-public void stealth();
+
 }
