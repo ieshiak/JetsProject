@@ -5,6 +5,7 @@ public abstract class Jet {
 	private int speed;
 	private int range;
 	private double price;
+	public abstract void fly();
 	
 	public Jet(String model, int speed, int range, double price) {
 		super();
@@ -38,10 +39,9 @@ public abstract class Jet {
 		this.price = price;
 	}
 	
-	public void fly() {
-        System.out.println("Jet details - Model: " + model + ", Speed: " + speed + " MPH, Range: " + range + " miles, Price: $" + price);
-        double timeToEmpty = (double) range / speed;
-        System.out.println("Time to empty: " + timeToEmpty + " hours");
-    }
+	public void add(Jet jets) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
