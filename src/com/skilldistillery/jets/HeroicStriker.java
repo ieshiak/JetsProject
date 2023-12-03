@@ -1,31 +1,54 @@
 package com.skilldistillery.jets;
 
+import java.util.Scanner;
+
 interface Warbird {
-	public void fight();
-	public void sheild();
-	
+    void fight();
+
+    void shield();
+}
+
 public class HeroicStriker extends Jet implements Warbird {
+    private Scanner scanner;
+    
 
-	public HeroicStriker(String model, int speed, int range, double price) {
-		super(model, speed, range, price);
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-    public void fly() {
-        System.out.println("Heroric Striker Details: " + getModel() + ", Speed: " + getSpeed() +
-                " MPH, Range: " + getRange() + " miles, Price: $" + getPrice());
-	}
-	@Override
-	public void fight() {
-		// TODO Auto-generated method stub
-		System.out.println("Engaging in a showdown with " + getModel());
-	}
+    public HeroicStriker(String model, int speed, int range, double price) {
+        super(model, speed, range, price);
+        scanner = new Scanner(System.in);
+    }
 
-	@Override
-	public void sheild() {
-		// TODO Auto-generated method stub
-		System.out.println("Deploying sheild for " + getModel());
-	}
+    @Override
+    public void fight() {
+        System.out.println("Engaging in a fight!");
+        // Implement the fight logic here
+    }
 
+    @Override
+    public void shield() {
+        System.out.println("Activating shield!");
+        // Implement the shield logic here
+    }
+
+    public void showdown() {
+        System.out.println("Preparing for Showdown!");
+
+        System.out.println("Choose an action:");
+        System.out.println("1. Fight");
+        System.out.println("2. Activate Shield");
+        System.out.print("Enter your choice: ");
+        
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                fight();
+                break;
+            case 2:
+                shield();
+                break;
+            default:
+                System.out.println("Invalid choice. No action taken.");
+        }
+    
 }
 }

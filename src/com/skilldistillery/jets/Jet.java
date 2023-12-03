@@ -5,7 +5,6 @@ public abstract class Jet {
 	private int speed;
 	private int range;
 	private double price;
-	public abstract void fly();
 	
 	public Jet(String model, int speed, int range, double price) {
 		super();
@@ -14,6 +13,17 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
+	public void fly() {
+    System.out.println("Model: " + model);
+    System.out.println("Speed: " + speed + " MPH");
+    System.out.println("Range: " + range + " miles");
+    System.out.println("Price: $" + price);
+
+    // Calculate time until the jet runs out of fuel
+    double timeToEmpty = (double) range / speed;
+    System.out.println("Time until empty: " + timeToEmpty + " hours");
+	}
+
 	public String getModel() {
 		return model;
 	}
@@ -40,8 +50,13 @@ public abstract class Jet {
 	}
 	
 	public void add(Jet jets) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
-	
+	@Override
+	public String toString() {
+	    return "Model: " + getModel() +
+	           "\nSpeed: " + getSpeed() + " MPH" +
+	           "\nRange: " + getRange() + " miles" +
+	           "\nPrice: $" + getPrice();
+	}  
 }

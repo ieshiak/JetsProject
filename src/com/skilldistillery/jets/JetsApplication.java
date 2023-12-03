@@ -3,83 +3,42 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import com.skilldistillery.jets.Blackbird.CargoCarrier;
 import com.skilldistillery.jets.Quinjet.SuperheroTransport;
-import com.skilldistillery.jets.Warbird.HeroicStriker;
 import com.skilldistillery.jets.Voyager.MultiverseTraveler;
-import com.skilldistillery.jets.AirField;
+
 
 public class JetsApplication {
 	private AirField airField;
 	private Scanner scanner;
-	
+	public JetsApplication() {
+        this.scanner = new Scanner(System.in);
+	}
 	public static void main(String[] args) {
 		JetsApplication app = new JetsApplication();
 		app.airField = new AirField();
-	       AirField airField = new AirField();
+	   
+	    
 
-	        // Create instances of each type of jet
-	        Jet superheroTrans1 = new SuperheroTransport("Nightshade", 1500, 5000, 750000000.0);
-	        Jet superheroTrans2 = new SuperheroTransport("Thunderstrike", 2000, 4000, 100000000.0);
-	        Jet cargoCarrier1 = new CargoCarrier("Shadowhawk", 1800, 4500, 800000000.0);
-	        Jet cargoCarrier2 = new CargoCarrier("Chronos", 1600, 5500, 900000000.0);
-	        Jet heroStrike1 = new HeroicStriker("Photon Fury", 2200, 3500, 950000000.0);
-	        Jet heroStrike2 = new HeroicStriker("Spectra Shadow", 1900, 4000, 100000000.0);
-	        Jet multiTraveler1 = new MultiverseTraveler("Timestrider", 600, 80000, 950000000.0);
-	        Jet multiTraveler2 = new MultiverseTraveler("Infinity Seeker", 600, 80000, 1200000000.0);
-
-	        // Add jets to the AirField
-	        airField.addJet(superheroTrans1);
-	        airField.addJet(superheroTrans2);
-	        airField.addJet(cargoCarrier1);
-	        airField.addJet(cargoCarrier2);
-	        airField.addJet(heroStrike1);
-	        airField.addJet(heroStrike2);
-	        airField.addJet(multiTraveler1);
-	        airField.addJet(multiTraveler2);
-	        
-	        //list the fleet
-	        airField.assembleFleet();
-	        //fly all jets
-	        airField.soarTheSkies();
-	        //fastest Jet
-	        airField.speedster();
-	        //longest Range Jet
-	        airField.supremeRange();
-	        //load Cargo Jets
-	        airField.loadCargoCarriers();
-
-	        // Display jet details
-	        for (Jet jet : airField.getJets()) {
-	            jet.fly();
-	            
-	            if (jet instanceof CargoCarrier) {
-	                ((CargoCarrier) jet).loadCargo();
-	            }
-
-	            if (jet instanceof Warbird) {
-	                ((Warbird) jet).fight();
-	            }
-
-	            if (jet instanceof Quinjet) {
-	                ((Quinjet) jet).stealth();
-	                ((Quinjet) jet).rescue();
-	            }
-
-	            if (jet instanceof Blackbird) {
-	                ((Blackbird) jet).loadCargo();
-	                ((Blackbird) jet).surveillance();
-	            }
-
-	            if (jet instanceof Voyager) {
-	                ((Voyager) jet).dimensionTravel();
-	                ((Voyager) jet).navigationHologram();
-	            }
-
-	            System.out.println(); // Add a newline for better readability
-	        }
+	app.run();
+	       
+	       
+	     
 	}
+	  
 	    public void run() {
-		while (true) {
+	    	 int choice = 0;  
+	    	do {
+	               displayMenu();
+	               choice = scanner.nextInt();
+	               handleUserChoice(choice);
+	           } while (choice != 9);
+	    	  if (scanner != null) {
+	              scanner.close();
+	          }
+	    	
+	    }
 
+	    	   
+	    private void displayMenu() {
 			System.out.println("                                                                        88        "); 
 			System.out.println("                                                                        88        ");
 			System.out.println("                                                                        88        ");
@@ -102,10 +61,11 @@ public class JetsApplication {
             System.out.println("|               9. End Mission                                                   |");                                 
     		System.out.println("|                                                                                |");
     		System.out.println("==================================================================================");
+	    	   }
+	    
+
     		
-    		Scanner scanner = new Scanner(System.in);
-    		int choice = scanner.nextInt();
-    		
+		private void handleUserChoice(int choice) {
     		switch (choice) {
             case 1:
             	airField.assembleFleet();
@@ -123,7 +83,8 @@ public class JetsApplication {
             	airField.loadCargoCarriers();
                 break;
             case 6:
-            	fight();
+            	HeroicStriker striker = new HeroicStriker("Photon Fury", 2200, 3500, 950000000.0);
+				striker.showdown(); 
                 break;
             case 7:
             	addJetSubMenu();
@@ -139,12 +100,11 @@ public class JetsApplication {
                 System.out.println("Your selection doesn't align with the cosmic forces at play. Opt for a valid option, true believer!");
     		}
 		}
-		}	
-		private void fight() {
-			// TODO Auto-generated method stub
-			System.out.println("Engaging in a showdown with " + getModel()); 
-		}
-		private void addJetSubMenu(AirField airField, Scanner scanner) {
+		
+
+		
+		private void addJetSubMenu() {
+			
 	        System.out.println("Select the type of Jet:");
 	        System.out.println("1. Superhero Transport");
 	        System.out.println("2. Cargo Carrier");

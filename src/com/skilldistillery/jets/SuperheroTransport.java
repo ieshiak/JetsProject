@@ -13,18 +13,14 @@ public class SuperheroTransport extends Jet implements Quinjet {
 	@Override
 	public void stealth() {
 		// TODO Auto-generated method stub
-		System.out.println("going invisible "+ getModel());;
+		
 	}
 	@Override
 	public void rescue() {
 		// TODO Auto-generated method stub
-		System.out.println("resucing... "+ getModel());
+		
 	}
-	@Override
-    public void fly() {
-        System.out.println("Superhero Transport Details: " + getModel() + ", Speed: " + getSpeed() +
-                " MPH, Range: " + getRange() + " miles, Price: $" + getPrice());
-    }
+	
 }
 		
 

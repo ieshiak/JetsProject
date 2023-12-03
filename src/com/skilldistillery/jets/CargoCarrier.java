@@ -11,20 +11,15 @@ public class CargoCarrier extends Jet implements Blackbird {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	    public void fly() {
-	        System.out.println("Cargo Carrier Details: " + getModel() + ", Speed: " + getSpeed() +
-	                " MPH, Range: " + getRange() + " miles, Price: $" + getPrice());
-	    }
-	
-	@Override
 	public void loadCargo() {
-		System.out.println("Loading cargo for " + getModel());
+		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void surveillance() {
 		// TODO Auto-generated method stub
-	}
+
+}
 }
 }
 
