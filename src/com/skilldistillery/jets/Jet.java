@@ -18,6 +18,7 @@ public abstract class Jet {
     System.out.println("Speed: " + speed + " MPH");
     System.out.println("Range: " + range + " miles");
     System.out.println("Price: $" + price);
+    System.out.println();
 
     // Calculate time until the jet runs out of fuel
     double timeToEmpty = (double) range / speed;

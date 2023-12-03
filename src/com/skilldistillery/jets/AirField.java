@@ -1,9 +1,6 @@
 package com.skilldistillery.jets;
-
 import java.util.ArrayList;
 
-import com.skilldistillery.jets.Blackbird.CargoCarrier;
-import com.skilldistillery.jets.Quinjet.SuperheroTransport;
 import com.skilldistillery.jets.Voyager.MultiverseTraveler;
 public class AirField {
     private ArrayList<Jet> jets;
@@ -43,6 +40,7 @@ public class AirField {
     
     public void assembleFleet() {
         System.out.println("Assemble Fleet:");
+        System.out.println("---------------");
         if (jets.isEmpty()) {
             System.out.println("No jets in the fleet.");
         } else {
@@ -56,10 +54,11 @@ public class AirField {
             System.out.println(); // Add a newline for better readability
             }
         }
-        System.out.println(); // Add a newline for better readability
+     
     }
         public void soarTheSkies() {
-            System.out.println("Soar The Skies");
+            System.out.println("Soar The Skies:");
+            System.out.println("---------------");
             for (Jet jet : jets) {
                 jet.fly();
             }
@@ -77,7 +76,8 @@ public class AirField {
             }
 
             if (fastestJet != null) {
-                System.out.println("Fastest Jet:");
+                System.out.println("The Speedster of the Universe is...");
+                System.out.println("-----------------------------------");
                 System.out.println("Model: " + fastestJet.getModel() +
                         ", Speed: " + fastestJet.getSpeed() + " MPH" +
                         ", Range: " + fastestJet.getRange() + " miles" +
@@ -100,7 +100,8 @@ public class AirField {
             }
 
             if (longestRangeJet != null) {
-                System.out.println("Jet with Longest Range:");
+                System.out.println("The Jet with Supreme Range is...");
+                System.out.println("--------------------------------");
                 System.out.println("Model: " + longestRangeJet.getModel() +
                         ", Speed: " + longestRangeJet.getSpeed() + " MPH" +
                         ", Range: " + longestRangeJet.getRange() + " miles" +

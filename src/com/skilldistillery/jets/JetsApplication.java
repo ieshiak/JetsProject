@@ -1,8 +1,6 @@
 package com.skilldistillery.jets;
 import java.util.ArrayList;
 import java.util.Scanner;
-import com.skilldistillery.jets.Blackbird.CargoCarrier;
-import com.skilldistillery.jets.Quinjet.SuperheroTransport;
 import com.skilldistillery.jets.Voyager.MultiverseTraveler;
 
 
@@ -80,7 +78,8 @@ public class JetsApplication {
             	airField.supremeRange();
                 break;
             case 5:
-            	airField.loadCargoCarriers();
+            	 CargoCarrier cargoCarrier = new CargoCarrier();
+                 cargoCarrier.loadCargo();
                 break;
             case 6:
             	HeroicStriker striker = new HeroicStriker("Photon Fury", 2200, 3500, 950000000.0);
@@ -97,7 +96,8 @@ public class JetsApplication {
                 System.exit(0);
                 break;
             default:
-                System.out.println("Your selection doesn't align with the cosmic forces at play. Opt for a valid option, true believer!");
+                System.out.println("Your selection doesn't align with the "
+                		+ "cosmic forces at play. Opt for a valid option, true believer!");
     		}
 		}
 		
