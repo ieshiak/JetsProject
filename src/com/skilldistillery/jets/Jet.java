@@ -1,10 +1,13 @@
 package com.skilldistillery.jets;
 
+import java.text.DecimalFormat;
+
 public abstract class Jet {
 	private String model;
 	private int speed;
 	private int range;
 	private double price;
+	private final DecimalFormat decimalFormat;
 	
 	public Jet(String model, int speed, int range, double price) {
 		super();
@@ -12,17 +15,20 @@ public abstract class Jet {
 		this.speed = speed;
 		this.range = range;
 		this.price = price;
+		this.decimalFormat = new DecimalFormat("#.##");
 	}
 	public void fly() {
     System.out.println("Model: " + model);
     System.out.println("Speed: " + speed + " MPH");
     System.out.println("Range: " + range + " miles");
-    System.out.println("Price: $" + price);
-    System.out.println();
+    System.out.println("Price: $" + decimalFormat.format(price));
+ 
 
     // Calculate time until the jet runs out of fuel
     double timeToEmpty = (double) range / speed;
-    System.out.println("Time until empty: " + timeToEmpty + " hours");
+    String formattedTimeToEmpty = String.format("%.2f", timeToEmpty);
+    System.out.println("Time until empty: " + formattedTimeToEmpty + " hours");
+    System.out.println();
 	}
 
 	public String getModel() {
@@ -55,9 +61,10 @@ public abstract class Jet {
 	}
 	@Override
 	public String toString() {
+		String formattedPrice = decimalFormat.format(getPrice());
 	    return "Model: " + getModel() +
 	           "\nSpeed: " + getSpeed() + " MPH" +
 	           "\nRange: " + getRange() + " miles" +
-	           "\nPrice: $" + getPrice();
+	           "\nPrice: $" + formattedPrice;
 	}  
 }

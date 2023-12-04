@@ -46,12 +46,7 @@ public class AirField {
         } else {
             for (Jet jet : jets) {
                 System.out.println(jet);
-       
-            System.out.println("Model: " + jet.getModel());
-            System.out.println("Speed: " + jet.getSpeed() + "MPH");
-            System.out.println("Range: " + jet.getRange() + " miles");
-            System.out.println("Price: $" + jet.getPrice());
-            System.out.println(); // Add a newline for better readability
+                System.out.println(); // Add a newline for better readability
             }
         }
      

@@ -14,12 +14,8 @@ public class JetsApplication {
 		JetsApplication app = new JetsApplication();
 		app.airField = new AirField();
 	   
-	    
-
 	app.run();
-	       
-	       
-	     
+    
 	}
 	  
 	    public void run() {

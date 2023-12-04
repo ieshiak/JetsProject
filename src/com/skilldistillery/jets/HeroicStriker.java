@@ -32,15 +32,15 @@ public class HeroicStriker extends Jet implements Warbird {
     }
 
     public void showdown() {
-        System.out.println("Preparing for Showdown!");
-
-        System.out.println("Choose an action:");
-        System.out.println("1. Stealth");
-        System.out.println("2. Activate Shield");
-        System.out.println("3. Rescue");
-        System.out.println("4. Surveillance");
-        System.out.println("5. Fight");
-        System.out.print("Enter your choice: ");
+        System.out.println("  Preparing for Showdown!  ");
+        System.out.println("---------------------------");
+        System.out.println("    Choose an action:      ");
+        System.out.println("      1. Stealth           ");
+        System.out.println("      2. Activate Shield   ");
+        System.out.println("      3. Rescue            ");
+        System.out.println("      4. Surveillance      ");
+        System.out.println("      5. Fight             ");
+        System.out.print("    Enter your choice: ");
         
         int choice = scanner.nextInt();
 

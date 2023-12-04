@@ -10,15 +10,25 @@ public class MultiverseTraveler extends Jet implements Voyager {
 		super(model, speed, range, price);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void dimensionTravel() {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void navigationHologram() {
 		// TODO Auto-generated method stub
+		
 	}
+
+
+
+		
+	}
+
+	
+
 }
-}
+
